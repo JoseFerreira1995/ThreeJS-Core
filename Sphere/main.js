@@ -15,4 +15,21 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
-renderer.render(scene, camera);
+const geometry = new THREE.IcosahedronGeometry(1, 3);
+const material = new THREE.MeshStandardMaterial({
+  color: 0x00afff,
+  flatShading: true,
+});
+
+const sphere = new THREE.Mesh(geometry, material);
+scene.add(sphere);
+
+const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000);
+scene.add(hemisphereLight);
+
+function animate(t = 0) {
+    sphere.rotation.y = t * 0.0001
+  renderer.render(scene, camera);
+}
+
+renderer.setAnimationLoop(animate);
