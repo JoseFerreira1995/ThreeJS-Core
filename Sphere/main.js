@@ -35,3 +35,5 @@ function animate(t = 0) {
   controls.update();
   renderer.render(scene, camera);
 }
+
+renderer.setAnimationLoop(animate)
