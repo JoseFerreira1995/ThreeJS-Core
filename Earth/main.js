@@ -35,7 +35,8 @@ scene.add(earth);
 // scene.add(hemisphereLight);
 
 const sunLight = new THREE.DirectionalLight(0xffffff, 3);
-sunLight.position.set(-2, -0.5, 1.5);
+
+sunLight.position.set(1, 2, 3);
 scene.add(sunLight);
 
 function animate() {
