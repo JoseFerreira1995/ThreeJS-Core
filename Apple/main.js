@@ -14,7 +14,7 @@ const far = 100;
 const camera = new THREE.PerspectiveCamera(fieldOfView, aspect, near, far);
 camera.position.z = 3;
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
