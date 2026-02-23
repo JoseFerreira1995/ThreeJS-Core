@@ -17,7 +17,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
-const text = new THREE.BoxGeometry(1, 2, 6);
+const text = new THREE.BoxGeometry(1, 4, 2);
 const material = new THREE.MeshStandardMaterial({
   color: 0x00fff0,
 });
@@ -36,5 +36,5 @@ renderer.setAnimationLoop(animation);
 
 window.addEventListener("scroll", () => {
   const scollOnX = window.scrollY / document.body.clientHeight;
-  cube.rotation.x = scollOnX * 5;
+  cube.rotation.y = scollOnX * 5;
 });
