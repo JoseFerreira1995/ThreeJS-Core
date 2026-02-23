@@ -17,9 +17,9 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 document.body.appendChild(renderer.domElement);
 
-const text = new THREE.BoxGeometry(1,2,6);
+const text = new THREE.BoxGeometry(1, 2, 6);
 const material = new THREE.MeshStandardMaterial({
-  color: 0x00ffff,
+  color: 0x00fff0,
 });
 
 const cube = new THREE.Mesh(text, material);
@@ -29,8 +29,12 @@ const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0xffffff);
 scene.add(hemisphereLight);
 
 function animation() {
-  cube.rotation.y += 0.01;
   renderer.render(scene, camera);
 }
 
 renderer.setAnimationLoop(animation);
+
+window.addEventListener("scroll", () => {
+  const scollOnX = window.scrollY / document.body.clientHeight;
+  cube.rotation.x = scollOnX * 5;
+});

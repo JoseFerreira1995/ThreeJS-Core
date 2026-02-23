@@ -12,7 +12,7 @@ const near = 0.1;
 const far = 100;
 
 const camera = new THREE.PerspectiveCamera(fieldOfView, aspect, near, far);
-camera.position.z = 3;
+camera.position.z = 4;
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 
@@ -36,9 +36,14 @@ scene.add(hemisphereLight);
 
 function animation() {
   apple.rotation.x += 0.001;
-  apple.rotation.z += 0.001;
+
   controls.update();
   renderer.render(scene, camera);
 }
 
 renderer.setAnimationLoop(animation);
+
+window.addEventListener("scroll", () => {
+  const scrollPosY = window.scrollY / document.body.clientHeight;
+  apple.position.z = scrollPosY * 5;
+});
